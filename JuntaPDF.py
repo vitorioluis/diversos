@@ -1,9 +1,15 @@
-from PyPDF2 import PdfFileWriter, PdfFileReader
+
+try:
+    from PyPDF2 import PdfFileWriter, PdfFileReader
+except:
+    from pip._internal import main
+    main(['install','--user', 'PyPDF2'])
+    from PyPDF2 import PdfFileWriter, PdfFileReader
 import os
 
 
 DicArq = {}
-Caminho = u'G:/Arcos Dourados/Tributário/2018/T.001.18_DIRF/01. Arquivos recebidos/INFORMES- CABAL - 8045'
+Caminho = u'diretorio'
 Novo = Caminho+'/Consolidado.pdf'
 for path, subdirs, files in os.walk(Caminho):
     for name in files:        
